@@ -1,12 +1,14 @@
 body {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
     /* Overlay oscuro */
-      url("https://cdn.donmai.us/original/b2/75/__kusugawa_sasara_to_heart_and_1_more_drawn_by_kawata_hisashi__b275f8cc63c61cd8af15c4af85259b5c.jpg")
+      url("https://c4.wallpaperflare.com/wallpaper/301/11/777/abstract-crt-monitor-grid-hd-wallpaper-preview.jpg")
       no-repeat center center fixed;
   background-size: cover;
   min-height: 100vh;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: row;
   font-family: "MS Gothic", monospace;
   color: #00ff00;
   display: flex;
@@ -55,6 +57,7 @@ body::after {
   border: 3px solid #0f0;
   padding: 20px;
   width: 800px;
+  margin: 0 auto; /* Centra el contenedor */
   backdrop-filter: blur(5px); /* Efecto de desenfoque */
   max-width: 800px; /* Ancho máximo */
   max-height: 90vh; /* Altura máxima */
@@ -136,63 +139,6 @@ body::after {
   }
 }
 
-.crt-footer {
-  position: fixed;
-  bottom: 30px;
-  left: 0;
-  width: 100%;
-  padding: 10px 0;
-  background: rgba(0, 20, 0, 0.8);
-  border-top: 2px solid #0f0;
-  box-shadow: 0 0 15px #0f03;
-  z-index: 1000;
-}
-
-.social-grid {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  padding: 5px;
-}
-
-.pixel-icon {
-  width: 24px;
-  height: 24px;
-  transition: all 0.3s ease;
-  position: relative;
-  filter: drop-shadow(0 0 2px #0f0);
-}
-
-.pixel-icon:hover {
-  transform: translateY(-3px);
-  filter: drop-shadow(0 0 5px #0f0);
-}
-
-.pixel-svg {
-  width: 100%;
-  height: 100%;
-  image-rendering: crisp-edges;
-}
-
-/* Efecto de escaneo CRT para el footer */
-.crt-footer::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    to bottom,
-    transparent 50%,
-    rgba(0, 255, 0, 0.05) 51%,
-    transparent 51%
-  );
-  background-size: 100% 4px;
-  pointer-events: none;
-  animation: scanline 4s linear infinite;
-}
-
 @keyframes scanline {
   0% {
     transform: translateY(-100%);
@@ -253,7 +199,31 @@ body::after {
   justify-content: center;
   align-items: center;
   font-family: "MS Gothic", monospace;
+  transition: opacity 1s ease-out; /* Transición suave */
   color: #0f0;
+}
+
+.loading-screen.hidden {
+  opacity: 0; /* Desvanecer */
+}
+
+.loading-content {
+  text-align: center;
+}
+
+.loading-cursor {
+  animation: blink 0.75s infinite; /* Animación de cursor parpadeante */
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
 }
 
 .loading-content {
@@ -459,4 +429,38 @@ button:hover {
 
 .controls {
   margin: 20px 0;
+}
+
+.retro-footer {
+  background-color: #000;
+  color: #0f0;
+  padding: 10px;
+  text-align: center;
+  font-family: "MS Gothic", monospace;
+  border-top: 2px solid #0f0;
+  width: 100%;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.social-links a {
+  color: #0f0;
+  font-size: 24px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #ff0;
+}
+
+.footer-text {
+  font-size: 12px;
+  margin-top: 10px;
 }

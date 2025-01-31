@@ -238,6 +238,12 @@ window.addEventListener("load", () => {
 
 window.addEventListener("load", function () {
   setTimeout(function () {
-    document.querySelector(".loading-screen").style.display = "none";
+    const loadingScreen = document.querySelector(".loading-screen");
+    loadingScreen.classList.add("hidden"); // Agrega la clase para desvanecer
+
+    // Elimina la pantalla de carga después de la transición
+    loadingScreen.addEventListener("transitionend", () => {
+      loadingScreen.style.display = "none";
+    });
   }, 2500);
 });
