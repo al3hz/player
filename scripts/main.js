@@ -4,39 +4,32 @@ let currentTrackIndex = 0;
 let updateTimeInterval = null;
 let isSeeking = false;
 
+let volume = 1; // Volumen inicial al máximo
+
+// Función para actualizar el volumen
+function updateVolume() {
+  if (sound) {
+    sound.volume(volume);
+    // Actualiza el porcentaje de volumen en la interfaz
+    const volumePercentageElement = document.getElementById("volumePercentage");
+    volumePercentageElement.textContent = `${Math.round(volume * 100)}%`;
+  }
+}
+
+// Evento para el control de volumen
+document
+  .getElementById("volumeControl")
+  .addEventListener("input", function (e) {
+    volume = parseFloat(e.target.value); // Obtiene el valor del control de volumen
+    updateVolume(); // Actualiza el volumen y el porcentaje
+  });
+
 document.getElementById("fileInput").addEventListener("change", function (e) {
   const files = Array.from(e.target.files);
   playlist = files;
   updatePlaylistDisplay();
   loadTrack(0);
 });
-
-// Variables globales
-let isRecording = false;
-let recordedPlaylist = [];
-let recordStartTime = null;
-
-// Función para iniciar/detener grabación
-function toggleRecording() {
-  const recordBtn = document.getElementById("recordBtn");
-
-  if (!isRecording) {
-    // Iniciar grabación
-    isRecording = true;
-    recordedPlaylist = [];
-    recordStartTime = Date.now();
-    recordBtn.classList.add("recording");
-    recordBtn.textContent = "⏹ STOP";
-    addSystemMessage("RECORDING STARTED - Mixtape session initiated");
-  } else {
-    // Detener grabación
-    isRecording = false;
-    recordBtn.classList.remove("recording");
-    recordBtn.textContent = "⏺ REC";
-    saveMixtape();
-    addSystemMessage("RECORDING STOPPED - Mixtape saved to local storage");
-  }
-}
 
 // Función para guardar la mixtape
 function saveMixtape() {
@@ -120,6 +113,7 @@ function loadTrack(index) {
     src: [objectURL],
     html5: true,
     format: ["mp3", "wav", "ogg"],
+    volume: volume, // Aplica el volumen actual
     onplay: () => {
       document.getElementById("playBtn").disabled = true;
       document.getElementById("pauseBtn").disabled = false;

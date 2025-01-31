@@ -430,3 +430,14 @@ button:hover {
 .controls {
   margin: 20px 0;
 }
+
+#volumeControl {
+  width: 100px;
+  margin-left: 10px;
+}
+
+#volumePercentage {
+  margin-left: 10px;
+  font-size: 14px;
+  color: #00ff00; /* Color verde para mantener el estilo retro */
+}
