@@ -11,7 +11,6 @@ body {
   color: #00ff00;
   display: flex;
   justify-content: center;
-
   align-items: center;
   height: 100vh;
   text-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
@@ -86,22 +85,21 @@ body::after {
 
 /* Asegúrate que el contenedor del diálogo tenga posición fija */
 #systemMsg {
-  position: fixed;
-  bottom: 60px; /* Ajusta según necesidad */
-  left: 20px;
+  font-size: 12px;
+  color: #0f0;
+  text-align: center;
+  padding-top: 15px;
 }
 
 .terminal-history {
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  width: 300px;
   background: rgba(0, 0, 0, 0.8);
   border: 2px solid #0f0;
   font-family: "MS Gothic", monospace;
   color: #0f0;
   font-size: 12px;
   padding: 5px;
+  margin-top: 20px;
+  text-align: center;
 }
 
 .history-header {
@@ -383,36 +381,53 @@ button:hover {
   );
   pointer-events: none;
 }
-.progress-container {
-  width: 100%;
-  height: 20px;
-  margin: 15px 0;
-  background: #1a1a1a;
-  border: 2px solid #ff00ff;
-  position: relative;
-}
 
 #progressBar {
   width: 100%;
   margin: 15px 0;
-  background-color: #00ff00;
+  background-color: #086f20; /* Fondo negro para un contraste fuerte */
+  border-radius: 10px; /* Bordes redondeados */
+  position: relative; /* Para posicionar el pseudo-elemento */
+}
+
+#progressBar::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    #00ff00,
+    #ff00ff
+  ); /* Gradiente de colores retro */
+  transition: width 0.2s ease; /* Transición suave */
 }
 
 #progressBar::-webkit-slider-thumb {
   -webkit-appearance: none;
-  width: 15px;
-  height: 15px;
-  background: #000000;
-  border: 2px solid #ff00ff;
-  border-radius: 50%;
+  width: 20px; /* Aumentar el tamaño del pulgar */
+  height: 20px;
+  background: #4aff02; /* Fondo negro */
+  border: 2px solid #ff00ff; /* Borde rosa */
+  border-radius: 50%; /* Forma circular */
+  box-shadow: 0 0 5px #ff00ff; /* Sombra para un efecto de brillo */
 }
 
 #progressBar::-moz-range-thumb {
-  width: 15px;
-  height: 15px;
-  background: #000000;
-  border: 2px solid #ff00ff;
-  border-radius: 50%;
+  width: 20px; /* Aumentar el tamaño del pulgar */
+  height: 20px;
+  background: #1dfa00; /* Fondo negro */
+  border: 2px solid #ff00ff; /* Borde rosa */
+  border-radius: 50%; /* Forma circular */
+  box-shadow: 0 0 5px #ff00ff; /* Sombra para un efecto de brillo */
+}
+
+/* Estilo para el estado de la barra de progreso */
+#progressBar:focus {
+  outline: none; /* Eliminar el contorno por defecto */
+}
+
+#progressBar:focus::before {
+  box-shadow: 0 0 10px #00ff00; /* Brillo verde al enfocar */
 }
 
 .time-display {

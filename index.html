@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Overlain Radio</title>
+    <title>Overlain Music Player</title>
     <!-- Incluir Howler.js desde CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
     <head>
@@ -29,7 +29,7 @@
     </div>
     <div class="container">
       <div class="player">
-        <h1>✨ Overlain Radio ✨</h1>
+        <h1>✨ Overlain Music Player ✨</h1>
         <input
           type="file"
           id="fileInput"
@@ -66,20 +66,12 @@
         class="track-list"
         style="margin: 15px 0; color: #00ff00"
       ></div>
+      <div id="historyLog" class="terminal-history">
+        <div class="history-header">PLAYBACK LOG [MAX ENTRIES: 50]</div>
+        <div class="history-entries"></div>
+      </div>
+      <div id="systemMsg">> SYSTEM: READY [2000s_OVERLAIN_OS v1.0]</div>
     </div>
-    <div
-      id="systemMsg"
-      style="
-        position: fixed;
-        bottom: 10px;
-        left: 10px;
-        font-size: 12px;
-        color: #0f0;
-      "
-    >
-      > SYSTEM: READY [2000s_OVERLAIN_OS v1.0]
-    </div>
-
     <div
       id="loading"
       style="
@@ -93,11 +85,6 @@
       "
     >
       █░░░▒▒▒▓▓▓ LOADING...
-    </div>
-
-    <div id="historyLog" class="terminal-history">
-      <div class="history-header">PLAYBACK LOG [MAX ENTRIES: 50]</div>
-      <div class="history-entries"></div>
     </div>
 
     <script src="scripts/main.js"></script>
