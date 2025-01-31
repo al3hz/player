@@ -1,0 +1,447 @@
+body {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    /* Overlay oscuro */
+      url("https://cdn.donmai.us/original/b2/75/__kusugawa_sasara_to_heart_and_1_more_drawn_by_kawata_hisashi__b275f8cc63c61cd8af15c4af85259b5c.jpg")
+      no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: "MS Gothic", monospace;
+  color: #00ff00;
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+  height: 100vh;
+  text-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
+  overflow: hidden;
+}
+
+h1 {
+  font-family: "Press Start 2P", monospace;
+  font-size: 24px;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 255, 0, 0.05) 0px,
+    rgba(0, 255, 0, 0.05) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  pointer-events: none;
+  z-index: -1;
+  animation: scan 8s linear infinite;
+}
+
+@keyframes scan {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.container {
+  background: rgba(0, 0, 0, 0.3); /* Fondo semi-transparente */
+  border: 3px solid #0f0;
+  padding: 20px;
+  width: 800px;
+  backdrop-filter: blur(5px); /* Efecto de desenfoque */
+  max-width: 800px; /* Ancho máximo */
+  max-height: 90vh; /* Altura máxima */
+  overflow-y: auto; /* Permite desplazamiento vertical si es necesario */
+  align-items: center;
+}
+
+.player {
+  text-align: center;
+  width: 100%;
+}
+
+/* Efecto de máquina de escribir */
+.typewriter {
+  border-right: 2px solid #00ff00;
+  animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #00ff00;
+  }
+}
+
+/* Asegúrate que el contenedor del diálogo tenga posición fija */
+#systemMsg {
+  position: fixed;
+  bottom: 60px; /* Ajusta según necesidad */
+  left: 20px;
+}
+
+.terminal-history {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  width: 300px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid #0f0;
+  font-family: "MS Gothic", monospace;
+  color: #0f0;
+  font-size: 12px;
+  padding: 5px;
+}
+
+.history-header {
+  border-bottom: 1px dashed #0f0;
+  padding-bottom: 3px;
+  margin-bottom: 5px;
+  text-shadow: 0 0 5px #0f0;
+}
+
+.history-entries {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.history-entry {
+  padding: 2px 0;
+  animation: logEntry 0.5s ease-in;
+  border-left: 3px solid transparent;
+}
+
+.history-entry:hover {
+  border-left-color: #0f0;
+  background: rgba(0, 255, 0, 0.1);
+}
+
+@keyframes logEntry {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.crt-footer {
+  position: fixed;
+  bottom: 30px;
+  left: 0;
+  width: 100%;
+  padding: 10px 0;
+  background: rgba(0, 20, 0, 0.8);
+  border-top: 2px solid #0f0;
+  box-shadow: 0 0 15px #0f03;
+  z-index: 1000;
+}
+
+.social-grid {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 5px;
+}
+
+.pixel-icon {
+  width: 24px;
+  height: 24px;
+  transition: all 0.3s ease;
+  position: relative;
+  filter: drop-shadow(0 0 2px #0f0);
+}
+
+.pixel-icon:hover {
+  transform: translateY(-3px);
+  filter: drop-shadow(0 0 5px #0f0);
+}
+
+.pixel-svg {
+  width: 100%;
+  height: 100%;
+  image-rendering: crisp-edges;
+}
+
+/* Efecto de escaneo CRT para el footer */
+.crt-footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(0, 255, 0, 0.05) 51%,
+    transparent 51%
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+  animation: scanline 4s linear infinite;
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.terminal-history::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 255, 0, 0.1) 0px,
+    rgba(0, 255, 0, 0.1) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+}
+
+/* Animaciones de carga */
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes progress-pulse {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "MS Gothic", monospace;
+  color: #0f0;
+}
+
+.loading-content {
+  position: relative;
+  padding: 20px;
+  border: 2px solid #0f0;
+  box-shadow: 0 0 15px #0f0;
+}
+
+.loading-text {
+  animation: glitch 0.5s infinite;
+  position: relative;
+  background: linear-gradient(90deg, #0f0 50%, transparent 50%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  animation: loading-progress 2s steps(10) infinite, text-glitch 0.8s infinite;
+}
+
+.loading-screen::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(0, 255, 0, 0.1) 51%,
+    transparent 51%
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+  animation: scanline 4s linear infinite;
+}
+
+.loading-screen::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle,
+    transparent 60%,
+    rgba(0, 255, 0, 0.1) 100%
+  );
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+@keyframes loading-progress {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.loading-cursor {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.current-track {
+  color: #ff00ff !important;
+  text-shadow: 0 0 10px #ff00ff;
+  margin: 8px 0;
+  padding: 5px;
+  border-left: 3px solid #00ff00;
+}
+
+.time-display {
+  margin: 10px 0;
+  font-size: 1.2em;
+}
+
+.track-info {
+  margin: 20px 0;
+  padding: 15px;
+  border: 2px solid #ff00ff;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+button {
+  background: #333;
+  color: #00ff00;
+  border: 2px solid #ff00ff;
+  padding: 10px;
+  margin: 5px;
+  font-family: "VT323", monospace;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #ff00ff;
+  color: #000;
+}
+
+.crt-effect::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15) 0px,
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+}
+.progress-container {
+  width: 100%;
+  height: 20px;
+  margin: 15px 0;
+  background: #1a1a1a;
+  border: 2px solid #ff00ff;
+  position: relative;
+}
+
+#progressBar {
+  width: 100%;
+  margin: 15px 0;
+  background-color: #00ff00;
+}
+
+#progressBar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 15px;
+  height: 15px;
+  background: #000000;
+  border: 2px solid #ff00ff;
+  border-radius: 50%;
+}
+
+#progressBar::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  background: #000000;
+  border: 2px solid #ff00ff;
+  border-radius: 50%;
+}
+
+.time-display {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  font-size: 1.1em;
+}
+
+.track-list div {
+  margin: 5px 0;
+  padding: 3px;
+  font-size: 0.9em;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+@keyframes crt {
+  0% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.9;
+  }
+}
+
+.controls {
+  margin: 20px 0;
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Overlain Radio</title>
+    <!-- Incluir Howler.js desde CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+    <head>
+      <link rel="stylesheet" type="text/css" href="./styles/main.css" />
+    </head>
+  </head>
+  <body class="crt-effect">
+    <div class="loading-screen">
+      <div class="loading-content">
+        <div class="loading-text">
+          █▒▓▒█▒▓▒█▒▓▒ 2000s_OVERLAIN_OS v1.0<span class="loading-cursor"
+            >_</span
+          >
+        </div>
+        <div style="margin-top: 10px; font-size: 12px">
+          INITIALIZING AUDIO DRIVERS...[! ]
+        </div>
+        <div style="font-size: 12px; color: #0f08">
+          ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="player">
+        <h1>✨ Overlain Radio ✨</h1>
+        <input
+          type="file"
+          id="fileInput"
+          accept="audio/*"
+          multiple
+          style="display: none"
+        />
+        <button onclick="document.getElementById('fileInput').click()">
+          📁 Cargar Música
+        </button>
+        <div style="font-size: 10px; color: #00ff00; margin-top: 5px">
+          Formatos aceptados: MP3, WAV, OGG, FLAC
+        </div>
+
+        <div class="controls">
+          <button id="playBtn">▶ PLAY</button>
+          <button id="pauseBtn">⏸ PAUSE</button>
+          <button id="nextBtn">⏭ NEXT</button>
+          <button id="randomBtn">🔀 RANDOM</button>
+        </div>
+
+        <div class="track-info">
+          <div id="currentTrack">Reproduciendo: Ninguna</div>
+          <input type="range" id="progressBar" min="0" max="100" value="0" />
+          <div class="time-display">
+            <span id="currentTime">00:00</span>
+            <span id="duration">00:00</span>
+          </div>
+        </div>
+      </div>
+
+      <div
+        id="playlist"
+        class="track-list"
+        style="margin: 15px 0; color: #00ff00"
+      ></div>
+    </div>
+    <div
+      id="systemMsg"
+      style="
+        position: fixed;
+        bottom: 10px;
+        left: 10px;
+        font-size: 12px;
+        color: #0f0;
+      "
+    >
+      > SYSTEM: READY [2000s_OVERLAIN_OS v1.0]
+    </div>
+
+    <div
+      id="loading"
+      style="
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: 'MS Gothic';
+        color: #0f0;
+      "
+    >
+      █░░░▒▒▒▓▓▓ LOADING...
+    </div>
+
+    <div id="historyLog" class="terminal-history">
+      <div class="history-header">PLAYBACK LOG [MAX ENTRIES: 50]</div>
+      <div class="history-entries"></div>
+    </div>
+
+    <script src="/scripts/main.js"></script>
+  </body>
+</html>
