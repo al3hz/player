@@ -102,9 +102,7 @@ function loadTrack(index) {
   const file = playlist[index];
   const objectURL = URL.createObjectURL(file);
 
-  document.getElementById(
-    "currentTrack"
-  ).textContent = `Reproduciendo: ${file.name}`;
+  document.getElementById("currentTrack").textContent = `Playing: ${file.name}`;
   addHistoryEntry(file.name);
   document.getElementById("progressBar").value = 0;
   updatePlaylistDisplay();
