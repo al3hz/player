@@ -1,7 +1,7 @@
 body {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
     /* Overlay oscuro */
-      url("https://c4.wallpaperflare.com/wallpaper/301/11/777/abstract-crt-monitor-grid-hd-wallpaper-preview.jpg")
+      url("https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdGY3ZmZ1YWY3djVibzF5MDV0ZHVpcG81ZXo0MTJmdjlkemIwcGtrbSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/mRVMYPfmMAca4/giphy.gif")
       no-repeat center center fixed;
   background-size: cover;
   min-height: 100vh;
@@ -429,38 +429,4 @@ button:hover {
 
 .controls {
   margin: 20px 0;
-}
-
-.retro-footer {
-  background-color: #000;
-  color: #0f0;
-  padding: 10px;
-  text-align: center;
-  font-family: "MS Gothic", monospace;
-  border-top: 2px solid #0f0;
-  width: 100%;
-}
-
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  flex-wrap: wrap;
-  margin-bottom: 10px;
-}
-
-.social-links a {
-  color: #0f0;
-  font-size: 24px;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.social-links a:hover {
-  color: #ff0;
-}
-
-.footer-text {
-  font-size: 12px;
-  margin-top: 10px;
 }
